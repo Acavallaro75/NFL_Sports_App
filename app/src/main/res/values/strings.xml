@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">NFL Sports App</string>
+    <string name="logo">Logo</string>
+    <string name="email">Email</string>
+    <string name="username_icon">username_icon</string>
+    <string name="password">Password</string>
+    <string name="linkedin">LinkedIn</string>
+    <string name="twitter">Twitter</string>
+    <string name="instagram">Instagram</string>
+    <string name="facebook">Facebook</string>
+    <string name="or">OR</string>
+    <string name="forgot_password">FORGOT PASSWORD?</string>
+    <string name="login">Login</string>
+    <string name="password_icon">password_icon</string>
+    <string name="create">CREATE AN ACCOUNT</string>
+    <string name="create_account">Create Account</string>
+    <string name="username">Username</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="empty_password">Please enter a password</string>
+    <string name="short_password">Passwords must be at least 8 characters</string>
+    <string name="empty_email">Please enter an email</string>
+    <string name="invalid_email">Please enter a valid email</string>
+    <string name="empty_first_name">Please enter a first name</string>
+    <string name="empty_last_name">Please enter a last name</string>
+    <string name="choose_teams">Choose Teams</string>
+
+</resources>
