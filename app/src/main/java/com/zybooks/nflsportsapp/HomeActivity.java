@@ -1,60 +1,52 @@
 package com.zybooks.nflsportsapp;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.widget.ListView;
+import java.util.ArrayList;
 
 public class HomeActivity extends Activity {
-
   String[] stories = new String[5];
-  String[] teams = {
-    "Arizona Cardinals",
-    "Atlanta Falcons",
-    "Baltimore Ravens",
-    "Buffalo Bills",
-    "Carolina Panthers",
-    "Chicago Bears",
-    "Cincinnati Bengals",
-    "Cleveland Browns",
-    "Dallas Cowboys",
-    "Denver Broncos",
-    "Detroit Lions",
-    "Green Bay Packers",
-    "Houston Texans",
-    "Indianapolis Colts",
-    "Jacksonville Jaguars",
-    "Kansas City Chiefs",
-    "Las Vegas Raiders",
-    "Los Angeles Chargers",
-    "Los Angeles Rams",
-    "Miami Dolphins",
-    "Minnesota Vikings",
-    "New England Patriots",
-    "New Orleans Saints",
-    "New York Giants",
-    "New York Jets",
-    "Philadelphia Eagles",
-    "Pittsburgh Steelers",
-    "San Fransisco 49ers",
-    "Seattle Seahawks",
-    "Tampa Bay Buccaneers",
-    "Tennessee Titans",
-    "Washington Football Team"
+  Integer[] images = {
+    R.drawable.lf, R.drawable.lf2, R.drawable.oj, R.drawable.tb, R.drawable.sched
+  };
+  String[] titles = {
+    "Leonard Fournette Returns",
+    "Leonard Fournette Interview",
+    "OJ Howard Recovering Well",
+    "7-round Mock Draft",
+    "TB Bucs Schedule"
   };
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_home);
-    setStories();
-  }
-
-  public void setStories() {
 
     SharedPreferences settings = getSharedPreferences(Globals.PREFS_NAME, 0);
     String team = settings.getString("favorite_team", "");
 
     Websites website = new Websites(team);
     stories = website.getTeamStories();
+
+    final ListView list = findViewById(R.id.list);
+    ArrayList<Stories> arrayList = new ArrayList<>();
+
+    for (int i = 0; i < stories.length; i++) {
+      arrayList.add(new Stories(titles[i], stories[i], images[i]));
+    }
+
+    CustomAdapter customAdapter = new CustomAdapter(this, arrayList);
+    list.setAdapter(customAdapter);
+
+    list.setOnItemClickListener(
+        (parent, view, position, id) -> {
+          String link = stories[position];
+          Intent intent = new Intent(this, WebpageActivity.class);
+          intent.putExtra("Story", link);
+          startActivity(intent);
+        });
   }
 }

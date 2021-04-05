@@ -15,14 +15,15 @@ public class WebpageActivity extends Activity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_webpage);
 
+    String story = getIntent().getStringExtra("Story");
+
     WebView webView = findViewById(R.id.webview);
     webView.setWebViewClient(new MyBrowser());
 
     webView.getSettings().setLoadsImagesAutomatically(true);
     webView.getSettings().setJavaScriptEnabled(true);
     webView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
-    webView.loadUrl(
-        "https://www.buccaneers.com/news/quarterback-tom-brady-signed-bucs-2020-super-bowl-lv-transaction");
+    webView.loadUrl(story);
   }
 
   private static class MyBrowser extends WebViewClient {

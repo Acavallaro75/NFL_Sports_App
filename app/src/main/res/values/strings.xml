@@ -24,5 +24,7 @@
     <string name="empty_first_name">Please enter a first name</string>
     <string name="empty_last_name">Please enter a last name</string>
     <string name="choose_teams">Choose Teams</string>
+    <string name="website_links">Website Links</string>
+    <string name="story_image">Story Image</string>
 
 </resources>

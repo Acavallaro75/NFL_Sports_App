@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.zybooks.nflsportsapp">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -19,13 +21,17 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.zybooks.nflsportsapp.WebpageActivity"
+            android:name=".WebpageActivity"
             android:label="@string/app_name" />
         <activity
-            android:name="com.zybooks.nflsportsapp.CreateAccountActivity"
+            android:name=".CreateAccountActivity"
             android:label="@string/app_name" />
         <activity
-            android:name="com.zybooks.nflsportsapp.ChooseTeamsActivity"
+            android:name=".ChooseTeamsActivity"
+            android:label="@string/app_name" />
+        <activity
+            android:name=".HomeActivity"
+            android:exported="true"
             android:label="@string/app_name" />
     </application>
 
