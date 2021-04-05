@@ -15,7 +15,7 @@ public class CustomAdapter extends ArrayAdapter<Stories> {
   private final Activity context;
 
   public CustomAdapter(Activity context, ArrayList<Stories> stories) {
-    super(context, R.layout.row_item, stories);
+    super(context, R.layout.row, stories);
     this.context = context;
     this.stories = stories;
   }
@@ -25,7 +25,7 @@ public class CustomAdapter extends ArrayAdapter<Stories> {
   public View getView(int position, View convertView, ViewGroup parent) {
     View row = convertView;
     LayoutInflater inflater = context.getLayoutInflater();
-    if (convertView == null) row = inflater.inflate(R.layout.row_item, null, true);
+    if (convertView == null) row = inflater.inflate(R.layout.row, null, true);
     TextView title = row.findViewById(R.id.textViewTitle);
     TextView link = row.findViewById(R.id.textViewLink);
     ImageView image = row.findViewById(R.id.storyImage);
